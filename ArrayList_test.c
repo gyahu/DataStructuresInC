@@ -17,8 +17,8 @@ boolean test_contains(ArrayList a){
 	a->ops->add(3, 14);
 	boolean contains_final = a->obs->contains(15);
 	boolean contains_index = a->obs->contains(14);
-	boolean not_contains = a->obs->contains(8);
-	return (contains_final && contains_index && !not_contains);
+	boolean not_contains = !a->obs->contains(8);
+	return (contains_final && contains_index && not_contains);
 }
 
 boolean test_remove(ArrayList a){
@@ -92,40 +92,30 @@ void main(){
 		printf("Add test succesfull\n");
 	else
 		printf("Add test failed\n");
-	a->ops->destroy();
-	a = newArrayList();
 	/* CONTAINS */
 	boolean contains = test_contains(a);
 	if (contains)
 		printf("Contains test succesfull\n");
 	else
 		printf("Contains test failed\n");
-	a->ops->destroy();
-	a =newArrayList();
 	/* REMOVE */
 	boolean remov = test_remove(a);
 	if (remov)
 		printf("Remove test succesfull\n");
 	else
 		printf("Remove test failed\n");
-	a->ops->destroy();
-	a =newArrayList();
 	/* RETRIEBE */
 	boolean retrieve - test_retrieve(a);
 	if (retrieve)
 		printf("Retrieve test succesfull\n");
 	else
 		printf("Retrieve test failed\n");
-	a->ops->destroy();
-	a =newArrayList();
 	/* REPETITIONS */
 	boolean repetitions = test_repetitions(a);
 	if (repetitions)
 		printf("Repetitions test succesfull\n");
 	else
 		printf("Repetitions test failed\n");
-	a->ops->destroy();
-	a =newArrayList();
 	/* SORTING */
 	boolean sorting = test_sorting(a);
 	if (sorting)
