@@ -84,6 +84,6 @@ void main(){
 
 	/* All test succesfull */
 	if (insertion && extraction && contains && repetitions)
-		printf("All test succesfull!\n");
+		printf("All test were succesfull!\n");
 
 }
