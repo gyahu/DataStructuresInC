@@ -41,6 +41,23 @@ boolean test_extraction(LinkedList l){
 	return (amounts && extractions);
 }
 
+boolean test_remove(LinkedList l){
+	l->ops->add(10);
+	l->ops->add(11);
+	l->ops->add(12);
+	l->ops->add(13);
+	l->ops->add(14);
+	l->ops->add(15);
+	int original = l->size;
+	l->ops->removeByIndex(3);
+	boolean not_belongs1 = !l->ops->contains(13);
+	boolean right_amount1 = (original-1 == l->size);
+	l->ops->removeByValue(14);
+	boolean not_belongs2 = !l->ops->contains(14);
+	boolean right_amount2 = (original-2 == l->size);
+	return (right_amount1 && right_amount2 && not_belongs1 && not_belongs2);
+}
+
 boolean test_contains(LinkedList l){
 	l->ops->add(50);
 	boolean belongs = l->ops->contains(50);
@@ -71,6 +88,11 @@ void main(){
 		printf("Extraction test succesfull\n");
 	else
 		printf("Extraction test failed\n");
+	boolean remov = test_remove(l);
+	if (remov)
+		printf("Remove test succesfull\n");
+	else
+		printf("Remove test failed\n");
 	boolean contains = test_contains(l);
 	if (contains)
 		printf("Contains test succesfull\n");
